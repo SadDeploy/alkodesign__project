@@ -1,0 +1,86 @@
+//
+// Button groups
+// --------------------------------------------------
+
+@if $use-btn-group == true {
+  .btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    > .btn {
+      position: relative;
+      float: left;
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        z-index: 2;
+      }
+    }
+  }
+
+  .btn-group {
+    .btn + .btn,
+    .btn + .btn-group,
+    .btn-group + .btn,
+    .btn-group + .btn-group {
+      margin-left: -1px;
+    }
+  }
+
+  .btn-group > .btn:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  .btn-group > .btn:first-child {
+    margin-left: 0;
+    &:not(:last-child) {
+      @include border-right-radius(0);
+    }
+  }
+  .btn-group > .btn:last-child:not(:first-child) {
+    @include border-left-radius(0);
+  }
+
+  .btn-group > .btn-group {
+    float: left;
+  }
+  .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+    border-radius: 0;
+  }
+  .btn-group > .btn-group:first-child:not(:last-child) {
+    > .btn:last-child {
+      @include border-right-radius(0);
+    }
+  }
+  .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+    @include border-left-radius(0);
+  }
+
+  // Sizing
+  .btn-group-xs > .btn {
+    @extend .btn-xs;
+  }
+  .btn-group-sm > .btn {
+    @extend .btn-sm;
+  }
+  .btn-group-lg > .btn {
+    @extend .btn-lg;
+  }
+
+  .btn-group-justified {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    > .btn,
+    > .btn-group {
+      float: none;
+      display: table-cell;
+      width: 1%;
+    }
+    > .btn-group .btn {
+      width: 100%;
+    }
+  }
+}

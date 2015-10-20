@@ -1,0 +1,38 @@
+//
+// Mixins -> Utilities
+// ------------------------------------
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+//mixins
+@mixin padtopbot($top, $bottom) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+@mixin padtop($top) {
+  padding-top: $top;
+}
+@mixin padbot($bottom) {
+  padding-bottom: $bottom;
+}
+@mixin margright($right) {
+  margin-right: $right;
+}
+@mixin margbot($bottom) {
+  margin-bottom: $bottom;
+}
+@mixin margtop($top) {
+  margin-top: $top;
+}

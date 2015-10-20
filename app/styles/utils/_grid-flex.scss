@@ -1,0 +1,217 @@
+//
+// Mixin -> FlexGrid
+// --------------------------------------------------
+
+
+// Centered container element
+@mixin container-fixed($gutter: $grid-gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @include clearfix;
+}
+
+
+// Creates a wrapper for a series of columns
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  -webkit-box-flex: 0;
+  flex: 0 1 auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left:  ($gutter / -2)rem;
+  margin-right: ($gutter / -2)rem;
+}
+
+// Generate the extra small columns
+@mixin make-column($gutter: $grid-gutter-width) {
+  // box-sizing: border-box;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  padding-left:  ($gutter / 2)rem;
+  padding-right: ($gutter / 2)rem;
+}
+
+// Generate the extra small columns
+@mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
+  -ms-flex-preferred-size: percentage(($columns / $grid-columns));
+  -webkit-flex-basis: percentage(($columns / $grid-columns));
+  flex-basis:  percentage(($columns / $grid-columns));
+  max-width: percentage(($columns / $grid-columns));
+}
+
+// Generate the small columns
+@mixin make-sm-column($columns, $gutter: $grid-gutter-width) {
+  @media (min-width: $screen-sm-min) {
+    -ms-flex-preferred-size: percentage(($columns / $grid-columns));
+    -webkit-flex-basis: percentage(($columns / $grid-columns));
+    flex-basis:  percentage(($columns / $grid-columns));
+    max-width: percentage(($columns / $grid-columns));
+  }
+}
+
+// Generate the medium columns
+@mixin make-md-column($columns, $gutter: $grid-gutter-width) {
+  @media (min-width: $screen-md-min) {
+    -ms-flex-preferred-size: percentage(($columns / $grid-columns));
+    -webkit-flex-basis: percentage(($columns / $grid-columns));
+    flex-basis:  percentage(($columns / $grid-columns));
+    max-width: percentage(($columns / $grid-columns));
+  }
+}
+
+// Generate the large columns
+@mixin make-lg-column($columns, $gutter: $grid-gutter-width) {
+  @media (min-width: $screen-lg-min) {
+    -ms-flex-preferred-size: percentage(($columns / $grid-columns));
+    -webkit-flex-basis: percentage(($columns / $grid-columns));
+    flex-basis:  percentage(($columns / $grid-columns));
+    max-width: percentage(($columns / $grid-columns));
+  }
+}
+
+// Generate the large columns
+@mixin make-xg-column($columns, $gutter: $grid-gutter-width) {
+  @media (min-width: $screen-xlg-min) {
+    -ms-flex-preferred-size: percentage(($columns / $grid-columns));
+    -webkit-flex-basis: percentage(($columns / $grid-columns));
+    flex-basis:  percentage(($columns / $grid-columns));
+    max-width: percentage(($columns / $grid-columns));
+  }
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-#{$class}-#{$i}";
+  }
+}
+
+@mixin calc-grid-column($index, $class, $type) {
+  @if ($type == width) and ($index > 0) {
+    .col-#{$class}-#{$index} {
+      -ms-flex-preferred-size: percentage(($index / $grid-columns));
+      -webkit-flex-basis: percentage(($index / $grid-columns));
+      flex-basis: percentage(($index / $grid-columns));
+      max-width: percentage(($index / $grid-columns));
+    }
+  }
+}
+@mixin calc-prop-column($index, $class, $type) {
+  @if ($type == start) and ($index > 0) {
+    .start-#{$class} {
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      text-align: start;
+    }
+  }
+  @if ($type == end) and ($index == 0) {
+    .end-#{$class} {
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      text-align: end;
+    }
+  }
+  @if ($type == center) and ($index > 0) {
+    .center-#{$class} {
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  @if ($type == top) and ($index == 0) {
+    .top-#{$class} {
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+    }
+  }
+  @if ($type == middle) {
+    .middle-#{$class} {
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+  }
+  @if ($type == bottom) {
+    .bottom-#{$class} {
+      -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+    }
+  }
+  @if ($type == around) {
+    .around-#{$class} {
+      -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+    }
+  }
+  @if ($type == between) {
+    .between-#{$class} {
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+  }
+  @if ($type == first) {
+    .first-#{$class} {
+      -webkit-order: -1;
+      -ms-flex-order: -1;
+      order: -1;
+    }
+  }
+  @if ($type == last) {
+    .last-#{$class} {
+      -webkit-order: 1;
+      -ms-flex-order: 1;
+      order: 1;
+    }
+  }
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin loop-grid-columns($columns, $class, $type) {
+  @for $i from 0 through $columns {
+    @include calc-grid-column($i, $class, $type);
+  }
+  @for $i from 0 through 0 {
+    @include calc-prop-column($i, $class, $type);
+  }
+}
+
+// Create grid for specific class
+@mixin make-grid($class) {
+  @include float-grid-columns($class);
+  @include loop-grid-columns($grid-columns, $class, width);
+  @include loop-grid-columns($grid-columns, $class, start);
+  @include loop-grid-columns($grid-columns, $class, center);
+  @include loop-grid-columns($grid-columns, $class, end);
+  @include loop-grid-columns($grid-columns, $class, top);
+  @include loop-grid-columns($grid-columns, $class, middle);
+  @include loop-grid-columns($grid-columns, $class, bottom);
+  @include loop-grid-columns($grid-columns, $class, around);
+  @include loop-grid-columns($grid-columns, $class, between);
+  @include loop-grid-columns($grid-columns, $class, first);
+  @include loop-grid-columns($grid-columns, $class, last);
+}

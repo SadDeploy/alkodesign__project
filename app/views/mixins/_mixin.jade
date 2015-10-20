@@ -1,0 +1,7 @@
+// миксины
+
+mixin list(classUl, ...items)
+    ul(class=classUl)
+        each item in items
+            li.nav__element
+                a(href="#").nav__element-item= item

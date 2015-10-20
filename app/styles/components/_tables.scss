@@ -1,0 +1,233 @@
+//
+// Modules -> Tables
+// --------------------------------------------------
+
+
+table {
+  background-color: $table-bg;
+}
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+
+
+// Baseline styles
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $line-height-computed;
+  tr {
+    > th,
+    > td {
+      padding: $table-cell-padding;
+      line-height: $line-height-base;
+      vertical-align: top;
+      border-top: 1px solid $table-border-color;
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: top;
+    text-align: center;
+    border-bottom: 2px solid $table-border-color;
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+  .table {
+    background-color: $base-background;
+  }
+}
+
+
+// Condensed table w/ half padding
+.table--condensed {
+  tr {
+    > th,
+    > td {
+      padding: $table-condensed-cell-padding;
+    }
+  }
+}
+
+
+// Bordered version
+.table--bordered {
+  border: 1px solid $table-border-color;
+  tr {
+    > th,
+    > td {
+      border: 1px solid $table-border-color;
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// Zebra-striping
+.table--striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+
+// Hover effect
+.table--hover {
+  > tbody > tr:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+// Cell alignments
+[colspan]{
+  text-align:center;
+}
+[colspan="1"]{
+  text-align:left;
+}
+[rowspan]{
+  vertical-align:middle;
+}
+[rowspan="1"]{
+  vertical-align:top;
+}
+.numerical{
+  text-align:right;
+}
+
+@if $use-column-table == true {
+  //col and colgroup
+  //<colgroup>
+  //  <col class=t10>
+  //  <col class=t10>
+  //  <col class=t10>
+  //  <col>
+  //</colgroup>
+  .t5 {
+    width: 5%
+  }
+  .t10 {
+    width: 10%
+  }
+  .t12 {
+    width: 12.5%
+  }
+  /* 1/8 */
+  .t15 {
+    width: 15%
+  }
+  .t20 {
+    width: 20%
+  }
+  .t25 {
+    width: 25%
+  }
+  /* 1/4 */
+  .t30 {
+    width: 30%
+  }
+  .t33 {
+    width: 33.333%
+  }
+  /* 1/3 */
+  .t35 {
+    width: 35%
+  }
+  .t37 {
+    width: 37.5%
+  }
+  /* 3/8 */
+  .t40 {
+    width: 40%
+  }
+  .t45 {
+    width: 45%
+  }
+  .t50 {
+    width: 50%
+  }
+  /* 1/2 */
+  .t55 {
+    width: 55%
+  }
+  .t60 {
+    width: 60%
+  }
+  .t62 {
+    width: 62.5%
+  }
+  /* 5/8 */
+  .t65 {
+    width: 65%
+  }
+  .t66 {
+    width: 66.666%
+  }
+  /* 2/3 */
+  .t70 {
+    width: 70%
+  }
+  .t75 {
+    width: 75%
+  }
+  /* 3/4*/
+  .t80 {
+    width: 80%
+  }
+  .t85 {
+    width: 85%
+  }
+  .t87 {
+    width: 87.5%
+  }
+  /* 7/8 */
+  .t90 {
+    width: 90%
+  }
+  .t95 {
+    width: 95%
+  }
+}
+
+// Table backgrounds
+@if $use-color-table == true {
+  @include table-row-variant('active', $table-bg-active);
+  @include table-row-variant('success', $state-success-bg);
+  @include table-row-variant('info', $state-info-bg);
+  @include table-row-variant('warning', $state-warning-bg);
+  @include table-row-variant('danger', $state-danger-bg);
+}

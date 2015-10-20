@@ -1,0 +1,67 @@
+//
+// Base -> Scaffolding
+// --------------------------------------------------
+
+// Misc
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+
+.clearfix {
+  @include clearfix();
+}
+
+// HTML
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Body
+body {
+  background-color: $base-background;
+  color: $base-color;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+}
+
+// Link
+a {
+  color: $link-color;
+  text-decoration: none;
+  @include transition;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+}
+.img--right{
+  float:right;
+  margin-bottom:  $line-height-computed;
+  margin-left: $line-height-computed;
+}
+.img--left{
+  float:left;
+  margin-right: $line-height-computed;
+  margin-bottom: $line-height-computed;
+}
+.img--center{
+  display:block;
+  margin-right:auto;
+  margin-bottom: $line-height-computed;
+  margin-left:auto;
+}

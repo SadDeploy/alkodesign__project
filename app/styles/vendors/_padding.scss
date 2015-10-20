@@ -1,0 +1,18 @@
+//
+// Vendor
+// ------------------------------------
+
+
+$i: 0;
+@while $i < 101 {
+  .padtopbot#{$i} {
+    @include padtopbot(1px * $i, 1px * $i);
+  }
+  .padtop#{$i} {
+    @include padtop(1px * $i);
+  }
+  .padbot#{$i} {
+    @include padbot(1px * $i);
+  }
+  $i: $i + 10;
+}

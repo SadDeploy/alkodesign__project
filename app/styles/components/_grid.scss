@@ -1,0 +1,85 @@
+//
+// Modules -> Grid
+// --------------------------------------------------
+
+// Container widths
+.container {
+  @include container-fixed;
+  @if $use-adaptive == true {
+    @media (min-width: $screen-sm-min) {
+      width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+      width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+      width: $container-lg;
+    }
+    @media (min-width: $screen-xlg-min) {
+      width: $container-xlg;
+    }
+  } @else {
+    width: $container-lg;
+  }
+}
+
+
+// Fluid container
+.container-fluid {
+  @include container-fixed;
+}
+
+@if $use-flexbox == true {
+  // Row
+  .row {
+    @include make-row;
+    &.reverse {
+      -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      flex-direction: row-reverse;
+    }
+  }
+  .col.reverse {
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    flex-direction: column-reverse;
+  }
+} @else {
+  .row {
+    @include make-row;
+  }
+}
+
+  // Columns
+  .col {
+    @include make-column;
+  }
+
+  // Extra small grid
+  @include make-grid(xs);
+
+@if $use-adaptive == true {
+  // Small grid
+  @media (min-width: $screen-sm-min) {
+    @include make-grid(sm);
+  }
+
+  // Medium grid
+  @media (min-width: $screen-md-min) {
+    @include make-grid(md);
+  }
+
+  // Large grid
+  @media (min-width: $screen-lg-min) {
+    @include make-grid(lg);
+  }
+
+  // XLarge grid
+  @media (min-width: $screen-xlg-min) {
+    @include make-grid(xlg);
+  }
+}

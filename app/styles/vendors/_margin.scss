@@ -1,0 +1,18 @@
+//
+// Vendor
+// ------------------------------------
+
+
+$i: 0;
+@while $i < 101 {
+  .margright#{$i} {
+    @include margright(1px * $i);
+  }
+  .margbot#{$i} {
+    @include margbot(1px * $i);
+  }
+  .margtop#{$i} {
+    @include margtop(1px * $i);
+  }
+  $i: $i + 10;
+}

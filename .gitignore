@@ -1,0 +1,11 @@
+.sass-cache
+bower_components
+node_modules
+.tmp
+.idea
+dist
+app/styles/main.css
+app/views/*.html
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
