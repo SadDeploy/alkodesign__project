@@ -15,15 +15,23 @@
   > li {
     position: relative;
     display: block;
-
+    font-size: 13px;
+    text-transform: uppercase;
     > a {
       position: relative;
       display: block;
       padding: $nav-link-padding;
+      text-decoration: none;
       &:hover,
       &:focus {
         text-decoration: none;
         background-color: $nav-link-hover-bg;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      &:hover .subMenu {
+        display: block;
       }
     }
   }

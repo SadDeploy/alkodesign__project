@@ -1,3 +1,17 @@
-# robotstxt.org/
+User-agent: Slurp
+Disallow: /
 
-User-agent: *
+User-Agent: *
+Disallow: /cgi-bin
+Disallow: /components
+Disallow: /includes
+Disallow: /javascript
+Disallow: /css
+Disallow: /private
+Disallow: /server
+Disallow: /stat
+Disallow: /search
+Disallow: /rus/search/
+Disallow: /search/
+Disallow: /public/
+Host: www.alkodesign.ru

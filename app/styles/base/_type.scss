@@ -23,7 +23,7 @@ h2,
 h3 {
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
-
+  text-transform: uppercase;
   small {
     font-size: 65%;
   }
@@ -31,6 +31,7 @@ h3 {
 h4,
 h5,
 h6 {
+  text-transform: uppercase;
   margin-top: ($line-height-computed / 2);
   margin-bottom: ($line-height-computed / 2);
 
@@ -39,8 +40,8 @@ h6 {
   }
 }
 
-h1 { font-size: $font-size-h1; }
-h2 { font-size: $font-size-h2; }
+h1 { font-size: $font-size-h1; color: $brand-primary; }
+h2 { font-size: $font-size-h2; color: $brand-primary; }
 h3 { font-size: $font-size-h3; }
 h4 { font-size: $font-size-h4; }
 h5 { font-size: $font-size-h5; }
@@ -51,6 +52,7 @@ h6 { font-size: $font-size-h6; }
 // -------------------------
 
 p {
+  font-size: em($base-font-size * 1.075);
   margin: 0 0 ($line-height-computed / 2);
 }
 
@@ -94,7 +96,12 @@ p {
 .text--uppercase      { text-transform: uppercase; }
 .text--capitalize     { text-transform: capitalize; }
 
+.text--lg {font-size: $font-size-large;}
+.text--md {font-size: $font-size-medium;}
+.text--sm {font-size: $font-size-small;}
+
 @if $use-color-text == true {
+  @include text-emphasis-variant('.text--default', $brand-default);
   @include text-emphasis-variant('.text--primary', $brand-primary);
   @include text-emphasis-variant('.text--success', $state-success-text);
   @include text-emphasis-variant('.text--info', $state-info-text);
@@ -136,11 +143,21 @@ ol {
 
 // Blockquotes
 blockquote {
-  padding: ($line-height-computed / 2) $line-height-computed;
+  padding: $line-height-computed $line-height-computed ($line-height-computed / 2) $line-height-computed * 2;
   margin: 0 0 $line-height-computed;
   font-size: $blockquote-font-size;
-  border-left: 5px solid $blockquote-border-color;
-
+  background: $blockquote-background-color;
+  color: $blockquote-small-color;
+  position: relative;
+  &:after {
+    content: '\e809';
+    color: $lighter;
+    font-family: 'fontello';
+    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
   p,
   ul,
   ol {

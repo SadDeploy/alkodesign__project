@@ -2,93 +2,161 @@ extends layouts/_default
 
 block content
     - var title = { description: 'Typical' }
-    include modules/_breadcrumbs
-    .container
-        .content
-            p К тому же &nbsp;
-                a(href="#") ссылка в тексте
-                |  точечное воздействие последовательно транслирует фирменный медиабизнес,
-                | отвоевывая рыночный сегмент. Рекламное сообщество масштабирует креативный бренд,
-                | учитывая современные тенденции. Более того, ассортиментная политика предприятия
-                | охватывает анализ зарубежного опыта.
-        .content
-            h1 Заголовок H1
-            h2 Заголовок H2
-            h3 Заголовок H3
-            h4 Заголовок H4
-            h5 Заголовок H5
-            p Нумерованный список
-            ol
-                - for (var x = 0; x < 2; x++)
-                    li Вам не нужно оплачивать разработку и изготовление штампа (2 000-10 000 р.);
-                        li Вам не нужно ждать изготовления штампа (3-5 дней);
-                        li Вы сокращаете время изготовления заказа, разложив изделия на лист.
-            p Ненумерованный список
-            ul
-                - for (var x = 0; x < 2; x++)
-                    li Диск штампованный 6.0Jx15H2 4/100/54.1 ET48
-                        ul
-                            li Диск штампованный 6.0Jx15H2 4/100/54.1 ET48
-                            li Диск штампованный 6.0Jx15H2 4/100/54.1 ET48
-                    - for (var y = 0; y < 3; y++)
-                        li Диск штампованный 6.0Jx15H2 4/100/54.1 ET48
-        .content
-            .margtop40
-                .pull-left
-                    button(type="submit", class="btn btn--default") выгрузить в CSV
-                .pull-right
-                    button(type="submit", class="btn btn--default") заказ списком
-            .clearfix
-            .margtop20
-                .pull-left  Скидка
-                .pull-right
-                    p
-                        b.font-xlg.text--default 30256
-                        span  товаров
-                .clearfix
-                table.table.table-striped
-                    thead
-                        tr
-                            th Наименование
-                            th Наличие
-                                i.fa.fa-lg
-                            th Транзит
-                                br
-                                | <14
-                                i.fa.fa-lg
-                            th Транзит
-                                br
-                                | >14
-                                i.fa.fa-lg
-                            th Резерв
-                                i.fa.fa-lg
-                            th Цена
-                                br
-                                | руб
-                                i.fa.fa-lg
-                            th Кол-во
-                    tbody
-                        - for (var x = 0; x < 3; x++)
-                            tr
-                                td
-                                    p
-                                        a(href="#").underline__link Canon PowerShot SX60 HS
-                                    - for (var y = 0; y < 2; y++)
-                                        button.btn.btn--primary.btn--xs WC4260sp
-                                td 12
-                                td 0
-                                td 0
-                                td 3
-                                td 23 877
-                                td
-                                    span.input-group
-                                        a(href="#", class="btn btn--primary btn--sm input-group-addon inc") -
-                                        input(type="text", value="1", class="text-center form-control", maxlength="3")
-                                        a(href="#", class="btn btn--primary btn--sm input-group-addon dec") +
-                    tfoot
-                        tr
-                            td(colspan="9", class="font-xlg text-right") Итого
-                                b  185 250 Р
-        .clearfix
-        p= index.footer
+    //include modules/_breadcrumbs
+    section.partition__background(style="background-image:url(images/advantage/539-54028_shutterstock_124784653.jpg);")
+        .container
+            .partition-element
+                h1.text--center Создание сайтов
+                blockquote
+                    p Вы хотите получать больше клиентов и прибыли из интернета? Создать эффективный канал продаж? Иметь достойное представительство компании в сети?
+                p Все это станет возможным, если вы закажете разработку сайта в нашей веб-студии. Мы структурируем Ваши задачи, сформируем оптимальное решение и разработаем для вас функциональный и удобный ресурс: интернет-магазин, промо или корпоративный сайт, landing page (посадочную страницу) или портал.
+                .text--center.more--button
+                    a.btn.btn--lg.btn--primary(href="#") Подробнее
+                .more-info-links.text--sm
+                    .row
+                        .col.col-xs-4
+                            a(href="#").text--default
+                                i.icon-right-open-big.text--primary
+                                | Создание корпоративного сайта
+                        .col.col-xs-4
+                            a(href="#").text--default
+                                i.icon-right-open-big.text--primary
+                                | Создание landing page
+                        .col.col-xs-4
+                            a(href="#").text--default
+                                i.icon-right-open-big.text--primary
+                                | Создание порталов
+                        .col.col-xs-4
+                            a(href="#").text--default
+                                i.icon-right-open-big.text--primary
+                                | Создание промо сайта
+                        .col.col-xs-4
+                            a(href="#").text--default
+                                i.icon-right-open-big.text--primary
+                                |Создание интернет-магазина
+                        .col.col-xs-4
+                            a(href="#").text--default
+                                i.icon-right-open-big.text--primary
+                                | Портфолио по интернет-сайтам и дизайну
+    section.partition__background-port
+        .container
+            .partition-port
+                h3.text--center Портфолио
+                - for (var i = 1; i < 9; i++)
+                    .col.col-md-3.col-sm-6.col-xs-12
+                        a.partition-port-element(href="#")
+                            .hidden_port Корпоративный сайт ЦСПД
+                            img(src="images/100x100.jpeg", alt="")
+    section.partition__background(style="background-image:url(images/advantage/539-54028_shutterstock_90161059.jpg);")
+        .container
+            .partition-element
+                h2.text--center Разработка веб-сайта
+                p Наш сегодняшний профессиональный опыт позволяет предлагать нашим клиентам не просто создание веб-сайта, а разработку стратегического, грамотного с маркетинговой точки зрения, интернет-ресурса для дальнейшего успешного охвата аудитории потребителей товаров/услуг компании через интернет.
+                p Разработка сайта, интернет-магазина или портала - это комплексный процесс, включающий в себя технические, творческие, маркетинговые, функциональные решения, совокупность которых является залогом создания мощного маркетингового инструмента, гарантирующего внушительные возможности для развития и процветания Вашего бизнеса.
+                p По разработке веб-сайтов мы работаем с
+                    a(href="#") 1С-BITRIX&nbsp;
+                    | и с
+                    a(href="#") YII Framework:
+                p.text--center
+                    a(href="#").margright10
+                        img(src="images/1c-bitrix-logo.png", alt="")
+                    a(href="#")
+                        img(src="images/alchemy_yii.png", alt="")
+    section.partition__background(style="background-image:url(images/advantage/539-54028_shutterstock_187672505.jpg);")
+        .container
+            .partition-element
+                h2.text--center Продвижение сайтов
+                h3.text--center Услуги по продвижению сайтов
+                p Мы предлагаем услуги по SEO продвижению сайтов в ведущих поисковых системах Yandex и Google. Поисковое продвижение сайта в нашей веб-студии — это гарантированное присутствие на лидирующих позициях и привлечение необходимой аудитории.
+                blockquote
+                    p Под понятием «продвижение веб-сайта» мы понимаем комплекс мер, направленных не просто на улучшение позиций сайта в поисковой выдаче, но главным образом направленных на увеличение Ваших продаж и масштабирование бизнеса в целом.
+                p Мы понимаем, что от Вашего успеха зависят наши успехи, поэтому максимально нацелены на результат.
+                .text--center.more--button
+                    a.btn.btn--lg.btn--primary(href="#") Схема работы по продвижению
+    section.partition__background(style="background-image:url(images/advantage/539-54028_shutterstock_165395204.jpg);")
+        .container
+            .partition-element
+                h3.text--center Реклама в интернете
+                blockquote
+                    p Хотите получать целевых клиентов уже завтра? Наблюдать рост количества заявок из интернета на 10-25%? Отмечать расширение охвата целевой аудитории? Есть решение!
+                p Веб-студия AlkoDesign предлагает услуги по размещению рекламы вашего бизнеса в системах контекстной рекламы Яндекс.Директ, Google AdWords, Begun, а также на площадках Яндекс.Маркет и Google Merchant Сenter.
+                p Реклама в интернете - это один из самых эффективных, доступных и быстрых способов привлечь клиента.
+                .text--center.more--button
+                    a.btn.btn--lg.btn--primary(href="#") Подробнее об интернет-рекламе
+    section.partition__background(style="background-image:url(images/advantage/539-54028_shutterstock_187672505.jpg);")
+        .container
+            .partition-element
+                p.text--center
+                    b Контекстная реклама Яндекс.Директ, Google AdWords и в социальных сетях
+                p Контекстная реклама показывается пользователю в зависимости от поискового запроса в поисковых системах Яндекс, Google и др. Пользователь видит вашу рекламу в результатах поисковой выдачи, а также на баннерах в Рекламной Сети Яндекса (РСЯ) и Контекстно-медийной Сети Google (КМС).
+                p.text--center
+                    b Реклама для интернет-магазинов
+                p Если у вас интернет-магазин, мы предлагаем разместить ваши товары на популярной торговой площадке Яндекс.Маркет и в системе Google Merchant Сenter.
+    section.partition__background-form
+        .container
+            .partition-form
+                h2.text--center ЗАКАЗАТЬ ИНТЕРНЕТ-УСЛУГИ
+                form.text--center(action="", method="post")
+                    .error.text--danger.margbot10
+                    .col-xs-5.d-inline.v-align-top.text--right
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label Имя
+                                    sup *
+                            .d-inline.v-align-top.col-xs-8
+                                input.form-control(type="text", required)
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label Организация
+                            .d-inline.v-align-top.col-xs-8
+                                input.form-control(type="text")
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label Телефон
+                                    sup *
+                            .d-inline.v-align-top.col-xs-8
+                                input.form-control(type="text", required)
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label E-mail
+                            .d-inline.v-align-top.col-xs-8
+                                input.form-control(type="email")
+                    .col-xs-5.d-inline.text--right
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label Тема
+                            .d-inline.v-align-top.col-xs-8
+                                select.form-control
+                                    option Веб-сайты, интернет-магазины, порталы, посадочные страницы
+                                    option Контекстная реклама, медийная реклама, SMM
+                                    option Дизайн, логотипы, фирменный стиль
+                                    option IT-консалтинг, оценка эффективности интернет-бизнеса
+                                    option Копирайтинг
+                                    option Онлайн-консультант
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label Сообщение
+                            .d-inline.v-align-top.col-xs-8
+                                textarea.form-control(rows="3")
+                        .form-group
+                            .d-inline.v-align-top.col-xs-3
+                                label Защитный код
+                                    sup *
+                            .d-inline.v-align-top.col-xs-4
+                                input.form-control(type="text", required)
+                            .d-inline.v-align-top.col-xs-4.text--left
+                                img(src="images/capcha.png", alt="")
+                    .text--center
+                        p Поля, отмеченные
+                            sup *
+                            |, обязательны для заполнения
+                        button.btn.btn--primary.btn--lg(type="submit") Отправить
+    section.partition__background(style="background-image:url(images/advantage/539-54028_shutterstock_208653196.jpg);")
+        .container
+            .partition-element
+                h2.text--center Веб-студия AlkoDesign
+                p Компания Алкодизайн специализируется на предоставлении качественных и эффективных интернет-услуг. С нашей помощью Вы можете создать презентабельный сайт и организовать прибыльные продажи своей продукции.
+                p Услуги веб-студии Алкодизайн ориентированы на тех, кто заинтересован в качественном, эффективном продвижении и рекламе своего бизнеса в интернете. Для этого специалисты нашей компании предлагают весь спектр услуг и собственный профессионализм, полученный на основе богатого опыта.
+                p Любая поставленная задача будет решена на высоком уровне и в кратчайший срок благодаря бизнес-процессу, разработанному отдельно для каждого направления.
+    //p= index.footer
 

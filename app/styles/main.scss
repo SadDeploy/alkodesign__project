@@ -1,4 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300&subset=latin,cyrillic);
+@font-face {
+  font-family: 'Myriad_pro';
+  src: url(../fonts/myriadpro-regular-webfont.eot?#iefix) format('embedded-opentype'), url(../fonts/myriadpro-regular-webfont.woff) format('woff'); }
+
+@font-face {
+  font-family: 'Myriad_pro-bold';
+  src: url(../fonts/myriadprobold.eot?#iefix) format('embedded-opentype'), url(../fonts/myriadprobold.woff) format('woff');
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Myriad_pro-bolditalic';
+  src: url(../fonts/myriadproboldcondit.eot?) format("embedded-opentype"), url(../fonts/myriadproboldcondit.woff) format("woff");
+  font-weight: bold;
+  font-style: italic; }
 // Styles
 // ------------------------------------
 
@@ -11,16 +25,16 @@ $use-btn-group:                           false!default;
 $use-input-group:                         true!default;
 $use-split:                               false!default;
 $use-rules:                               false!default;
-$use-this-or-this:                        false!default;
+$use-this-or-this:                        true!default;
 $use-has-feedback:                        false!default;
-$use-color-text:                          false!default;
+$use-color-text:                          true!default;
 $use-color-table:                         false!default;
 $use-column-table:                        false!default;
 $use-flexbox:                             false!default;
-$use-adaptive:                            false!default;
+$use-adaptive:                            true!default;
 
 // plugins
-$use-animations:                          false!default;
+$use-animations:                          true!default;
 
 // Variables
 @import "_variables";
@@ -40,9 +54,9 @@ $use-animations:                          false!default;
 // Pages
 @import "pages/glob";
 
-// Themes
-@import "themes/glob";
-
 // Vendors
 @import "vendors/glob";
+
+// Themes
+@import "themes/glob";
 

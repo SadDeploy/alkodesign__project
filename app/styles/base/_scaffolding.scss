@@ -27,7 +27,7 @@ body {
   background-color: $base-background;
   color: $base-color;
   font-weight: $base-font-weight;
-  font-size: $base-font-size;
+  font-size: 16px;
   font-family: $base-font-family;
   line-height: $base-line-height;
 }
@@ -35,13 +35,23 @@ body {
 // Link
 a {
   color: $link-color;
-  text-decoration: none;
+  text-decoration: underline;
   @include transition;
 
   &:hover,
   &:focus {
     color: $link-hover-color;
   }
+}
+
+.d-inline {
+  display: inline-block;
+}
+.v-align-middle {
+  vertical-align: middle;
+}
+.v-align-top {
+  vertical-align: top;
 }
 
 // Images

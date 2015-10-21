@@ -2,7 +2,78 @@
 // Partials -> Main
 // ------------------------------------
 
-.site-main {
-  padding-top: 20px;
-  padding-bottom: 20px;
+//main {padding: 0 1em;}
+.partition__background {
+  padding: 1.9em;
+  background-size: cover;
 }
+  .partition__background-port {
+    padding: 1.9em;
+    background: $gray-dark;
+    color: $lighter;
+  }
+  .partition__background-form {
+    padding: 1.9em;
+    background: #ECECEC;
+  }
+
+    .partition-element {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 1.5em 2em;
+    }
+    .partition-port-element {
+      display: block;
+      position: relative;
+      &:hover .hidden_port {
+        display: block;
+      }
+    }
+      .hidden_port {
+        display: none;
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        bottom: 7px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+        padding: 1em 0;
+        color: $lighter;
+      }
+    .partition-form {
+      form {
+        background-color: #F5F5F5;
+        padding: 1.9em;
+      }
+    }
+.more--button {
+  .btn {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 20px 0 20px;
+      border-color: $brand-primary transparent transparent transparent;
+    }
+    &:hover:after {
+      border-color: #ad1d17 transparent transparent transparent;
+    }
+  }
+}
+  .more-info-links {
+    background-color: #fff;
+    padding: 7px 0;
+    a {
+      display: block;
+      padding: 5px 10px;
+      border-bottom: 1px solid $gray-lighter;
+      &:hover {background-color: #FAFAFA;}
+    }
+  }

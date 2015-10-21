@@ -11,8 +11,9 @@ include ../mixins/_mixin
 
 head
   meta(charset="utf-8")
-  title Noob UI
-  meta(name="description", content="")
+  title Создание, продвижение, дизайн сайтов, контекстная реклама в интернете. Веб-студия Алкодизайн
+  meta(name="description", content="Веб-студия предлагает услуги по созданию сайта и продвижению бизнеса в Интернете.")
+  meta(name="keywords", content="веб студия, интернет агентство, создание сайтов, продвижение сайтов, контекстная реклама в интернете")
   meta(name="viewport", content="width=device-width, initial-scale=1")
   link(rel="shortcut icon", href="favicon.ico")
 
@@ -21,7 +22,7 @@ head
   // endbower
   //- endbuild -->
   //- build:css({.tmp,app}) styles/main.css -->
-  link(rel="stylesheet", href="/styles/main.css")
+  link(rel="stylesheet", href="styles/main.css")
   //- endbuild -->
 
 body
@@ -37,12 +38,14 @@ body
   //- build:js(./app/) scripts/vendor.js -->
   // bower:js
   script(src='../bower_components/jquery/dist/jquery.js')
+  script(src='../bower_components/df-visible/jquery.visible.js')
   // endbower
   //- endbuild -->
   //- build:js(.tmp) scripts/plugins.js -->
+  script(src = "scripts/plugins/collapse.js")
   //- endbuild -->
   //- build:js(.tmp) scripts/main.js -->
-  script(src="/scripts/main.js")
+  script(src="scripts/main.js")
   //- endbuild -->
 
 | </html>

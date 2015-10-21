@@ -1,3 +1,43 @@
 //
 // Themes
 // ------------------------------------
+
+
+@media (max-width: $screen-xlg-min) {
+  .nav > li > a {padding: 20px 19px;}
+}
+@media (max-width: $screen-lg-min) {
+  .nav > li > a {padding: 19px 9px;}
+}
+@media (max-width: $screen-md-min) {
+  body {
+    font-size: 14px;
+  }
+  .menu__slider-item-element {
+    margin: 1px 0;
+    height: 62px;
+    & span {
+      line-height: 62px;}
+  }
+  .navbar-brand {
+    max-width: 35px;
+  }
+  .collapse .nav > li {
+    background: #333;
+    text-align: center;
+    a {
+      color: #fff;
+      padding: 5px;
+    }
+    &:hover a, &:focus a, &.active a {
+      background: #444;
+      color: #fff;
+    }
+  }
+  .hidden_port {
+    display: block;
+    position: relative;
+    bottom: auto;
+    background: rgba(0, 0, 0, 0);
+  }
+}

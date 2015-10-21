@@ -2,55 +2,58 @@
 // Core -> Variables
 // ------------------------------------
 
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+
 // Brand
 $gray-base:              #000;
 $gray-darker:            lighten($gray-base, 13.5%); // #222
 $gray-dark:              lighten($gray-base, 20%);   // #333
-$gray:                   lighten($gray-base, 33.5%); // #555
-$gray-light:             lighten($gray-base, 46.7%); // #777
-$gray-lighter:           lighten($gray-base, 93.5%); // #eee
+$gray:                   lighten($gray-base, 40%);   // #676767
+$gray-light:             lighten($gray-base, 55%);   // #8D8D8D
+$gray-lighter:           lighten($gray-base, 87%);   // #DEDEDE
 $lighter:                #fff;
 
-$brand-primary:          #428bca;
+$brand-primary:          #DA251D;
 $brand-success:          #5cb85c;
 $brand-info:             #5bc0de;
 $brand-warning:          #f0ad4e;
-$brand-danger:           #d9534f;
-
+$brand-danger:           #A11009;
+$brand-default:          #333;
 
 // Variables -> Core
 
 // Base
-$base-font-family:        "Roboto", Arial, sans-serif;
+$base-font-family:        "Myriad_pro", "Helvetica", Arial, sans-serif;
 $base-font-family-mono:   Menlo, Monaco, Consolas, "Courier New", monospace;
-$base-font-size:          16px;
+$base-font-size:          16px; // 16px
 $base-font-weight:        400;
 $base-line-height:        1.428571429;
-$base-color:              #333;
+$base-color:              #222;
 $base-background:         #fff;
 
 // Link
-$link-color:              $gray-base;
-$link-hover-color:        $base-color;
-$link-decoration:         none;
-
-
+$link-color:              #BB1E19;
+$link-hover-color:        #FF665F;
+$link-decoration:         underline;
 
 // Variables -> Modules
 
 // Typography
 $font-size-base:          $base-font-size !default;
-$font-size-large:         ceil(($base-font-size * 1.25)) !default; // ~18px
-$font-size-medium:        ceil(($base-font-size * 1)) !default; // ~16px
-$font-size-small:         ceil(($base-font-size * 0.85)) !default; // ~12px
+$font-size-large:         em($base-font-size * 1.675) !default; // ~18px
+$font-size-medium:        em($base-font-size * 1) !default; // ~16px
+$font-size-small:         em($base-font-size * 0.875) !default; // ~12px
 
 
-$font-size-h1:             floor(($base-font-size * 2)); // ~30px
-$font-size-h2:             floor(($base-font-size * 1.6)); // ~24px
-$font-size-h3:             ceil(($base-font-size * 1.4)); // ~21px
-$font-size-h4:             ceil(($base-font-size * 1.25)); // ~18px
-$font-size-h5:             $base-font-size;
-$font-size-h6:             ceil(($base-font-size * 0.85)); // ~12px
+$font-size-h1:             em($base-font-size * 3); // ~48px
+$font-size-h2:             em($base-font-size * 2); // ~30px
+$font-size-h3:             em($base-font-size * 2); // ~30px
+$font-size-h4:             em($base-font-size * 1.5625); // ~25px
+$font-size-h5:             em($base-font-size * 1.125); // ~18px
+$font-size-h6:             em($base-font-size * 0.875); // ~14px
 
 $line-height-base:         1.428571429;
 $line-height-computed:     floor(($base-font-size * $line-height-base)); // ~22px
@@ -68,7 +71,7 @@ $screen-sm:                   480px;
 $screen-sm-min:               $screen-sm;
 $screen-phone:                $screen-sm-min;
 
-$screen-md:                   768px;
+$screen-md:                   868px;
 $screen-md-min:               $screen-md;
 $screen-tablet:               $screen-md-min;
 
@@ -76,18 +79,18 @@ $screen-lg:                   992px;
 $screen-lg-min:               $screen-lg;
 $screen-desktop:              $screen-lg-min;
 
-$screen-xlg:                  1200px;
+$screen-xlg:                  1400px;
 $screen-xlg-min:              $screen-xlg;
 $screen-xlg-desktop:          $screen-xlg-min;
 
 
 // Number of columns in the grid system
 $grid-columns:                 12;
-$grid-gutter-width:            30px;
+$grid-gutter-width:            12px;
 
 
 // Small screen / tablet
-$container-mobile:             (480px + $grid-gutter-width);
+$container-mobile:             (420px + $grid-gutter-width);
 //** For `$screen-sm-min` and up.
 $container-sm:                 $container-mobile;
 
@@ -102,7 +105,7 @@ $container-desktop:            (940px + $grid-gutter-width);
 $container-lg:                 $container-desktop;
 
 // Large screen / wide desktop
-$container-large-desktop:      (1140px + $grid-gutter-width);
+$container-large-desktop:      (1308px + $grid-gutter-width);
 //** For `$screen-lg-min` and up.
 $container-xlg:                 $container-large-desktop;
 
@@ -138,7 +141,7 @@ $padding-base-vertical:          6px;
 $padding-base-horizontal:        12px;
 
 $padding-large-vertical:         10px;
-$padding-large-horizontal:       16px;
+$padding-large-horizontal:       26px;
 
 $padding-small-vertical:         5px;
 $padding-small-horizontal:       10px;
@@ -159,9 +162,9 @@ $btn-border-radius-small:        $border-radius-small;
 
 
 // Type
-$blockquote-small-color:         $gray-light;
-$blockquote-font-size:           ($base-font-size * 1.25);
-$blockquote-border-color:        $gray-lighter;
+$blockquote-small-color:         $gray-base;
+$blockquote-font-size:           em($base-font-size * 1.4375);
+$blockquote-background-color:    #C9C9C9 ;
 
 
 // Breadcrumbs
@@ -215,8 +218,8 @@ $table-border-color:            #ddd;
 
 
 //== Navbar
-$navbar-height:                    50px;
-$navbar-margin-bottom:             $line-height-computed;
+$navbar-height:                    79px;
+$navbar-margin-bottom:             0;
 $navbar-border-radius:             $border-radius-base;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
@@ -227,22 +230,22 @@ $navbar-default-bg:                #f8f8f8;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%);
 
 // Navbar toggle
-$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-hover-bg:           #333;
 $navbar-default-toggle-icon-bar-bg:        #888;
 $navbar-default-toggle-border-color:       #ddd;
 
 // Navbar links
-$navbar-default-link-color:                #777;
+$navbar-default-link-color:                #000;
 $navbar-default-link-hover-color:          #333;
 $navbar-default-link-hover-bg:             transparent;
 $navbar-default-link-active-color:         #555;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%);
+$navbar-default-link-active-bg:            #f3f3f3;
 $navbar-default-link-disabled-color:       #ccc;
 $navbar-default-link-disabled-bg:          transparent;
 
 
 // Navs
-$nav-link-padding:                          10px 15px;
+$nav-link-padding:                          28px 30px;
 $nav-link-hover-bg:                         $gray-lighter;
 
 $nav-tabs-active-link-hover-bg:             $base-background;
@@ -268,8 +271,8 @@ $input-border-focus:             #66afe9 !default;
 $input-color-placeholder:        #999 !default;
 
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
-$input-height-large:             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
-$input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
+$input-height-large:             (ceil(20px * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
+$input-height-small:             (floor(14px * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
 
 $input-group-addon-bg:           $gray-lighter !default;

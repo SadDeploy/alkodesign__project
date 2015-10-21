@@ -26,10 +26,13 @@ legend {
 label {
   display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
+  //margin-bottom: 5px;
+  text-align: right;
+  color: #6C6C6C;
+  line-height: 1.5;
 }
 
+sup {color: $brand-primary}
 
 // Normalize form controls
 input[type="search"] {
@@ -198,6 +201,12 @@ input[type="search"] {
       cursor: $cursor-disabled;
     }
   }
+}
+
+.form-inline .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
 }
 
 @if $use-has-feedback == true {
